@@ -1,0 +1,611 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin Panel</title>
+<link rel="stylesheet" type="text/css" th:href="@{/css/admin.css}">
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+	crossorigin="anonymous">
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
+	crossorigin="anonymous">
+   <link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.18/dist/sweetalert2.min.css">
+    <script
+	src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+	integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+	crossorigin="anonymous"></script>
+    <script
+	src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.18/dist/sweetalert2.min.js"></script>
+
+<script th:src="@{/js/admin.js}" defer></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+</head>
+<body>
+
+
+	<div class="container-fluid admin">
+
+		<div class="row " style="display: flex; position: sticky;">
+			<!-- Sidebar -->
+			<nav class="col-sm-3 block sidebar"
+				style="background-color:#0B0B3B;width:200px;">
+
+				<ul class="nav flex-column"
+					style="position: fixed; margin-top: 100px">
+					<li class="nav-item">
+						<button class="nav-link tablink white-text-btn"
+							onclick="openTab('tab1')">News & Events</button>
+					</li>
+
+					<li class="nav-item">
+						<button class="nav-link tablink white-text-btn"
+							onclick="openTab('tab2')">Careers</button>
+					</li>
+
+					<li class="nav-item">
+						<button class="nav-link tablink white-text-btn"
+							onclick="openTab('tab3')">Gallery</button>
+					</li>
+
+					<li class="nav-item">
+						<button class="nav-link tablink white-text-btn"
+							onclick="openTab('tab4')">Job Applications</button>
+					</li>
+
+					<li class="nav-item">
+						<button class="nav-link tablink white-text-btn"
+							onclick="openTab('tab5')">Scroll News</button>
+					</li>
+
+					<li class="nav-item">
+						<button class="nav-link tablink white-text-btn"
+							onclick="openTab('tab6')">Contact Us</button>
+					</li>
+				</ul>
+			</nav>
+
+			<div class="col-sm-12 heading">
+			
+				<h1>AdminDashboard</h1>
+				<div class="logout">
+					<!-- Add SweetAlert to the logout button -->
+					<button type="button" class="btn" id="logoutButton">logout</button>
+				</div>
+			</div>
+			
+			<div class="container-fluid admin">
+
+				<div class="container-fluid" style="margin-top: 100px;">
+					<div class="row" style="position: sticky; margin-top: 100px;">
+
+					</div>
+				</div>
+				<!-- Main content area -->
+				<div class="col-sm-9 content">
+					<!-- Your content here -->
+				</div>
+			</div>
+
+
+			<div class="col-sm-8">
+
+
+				<div id="tab1" class="tabcontent">
+				<div class="row">
+	<div class="panel-body fixed" >
+	
+							<div class="searchadd">
+    <input type="text" id="searchInput" placeholder="Search for news..." onkeyup="searchFunction()" style="padding-right: 40px;  margin-left:60px;"> <!-- Adjusted padding-left -->
+  <div class="col-sm-2">
+						<button class="btn btn-primary" onclick="openNewsModal()" >Addnew</button>
+					</div>
+</div><br>
+
+					
+					<div class="panel panel-default"  >
+					
+					
+
+							<table id="tbl-news" class="table table-responsive table-bordered table-hover" style="width:1000px;margin-left:50px;">
+								<thead class="thead-light">
+									<tr>
+										<th>ID</th>
+										<th>NEWS DATE</th>
+									 <th rowspan="6" style="width: 200px;">News and Events</th>
+										<th>ACTION</th>
+									</tr>
+								</thead>
+								<tbody id="dataContainer1"></tbody>
+							</table>
+						</div>
+					
+					<div id="news-pagination-container" class="paginator">
+					</div>
+</div>
+
+
+					<!-- Edit Pop up -->
+					<div class="modal model-editnews" id="editNewsModal">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h5 class="modal-title">Edit Form</h5>
+								<label class="close" for="modalToggle" onclick="closeModal()">&times;</label>
+							</div>
+							<div class="modal-body">
+								<!-- Your Form Goes Here -->
+								<form action="" method="POST" id="editnewsForm"
+									onsubmit="submitForm(event)">
+									<input type="hidden" name="_method" value="PUT" /> <input
+										type="hidden" name="id" value="" />
+									<table>
+										<tr>
+											<td><label for="NewsEvents">NewsEvents:</label> <textarea
+													type="text" name="newsEvent" id="editTextarea"></textarea>
+											</td>
+										</tr>
+										<tr>
+											<td colspan="2"><input type="submit" value="Submit"
+												id="submit" class="btn btn-primary" /></td>
+										</tr>
+									</table>
+								</form>
+							</div>
+
+						</div>
+					</div>
+					<!-- Add News Model  -->
+					<div class="modal" id="addNewsModalButton">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h5 class="modal-title">News & Events</h5>
+								<label class="close" onclick="closeAddNewsModal()">&times;</label>
+							</div>
+							<div class="modal-body">
+								<form action="/api/save" method="POST" onsubmit="Form(event)">
+									<input type="hidden" name="_method">
+									<div class="user-details">
+										<div class="input-box">
+											<label class="details">Date :</label> <input type="date"
+												name="date" id="date" required>
+										</div>
+										<br>
+										<div class="input-box">
+											<label class="details">News & Events :</label>
+											<textarea name="newsEvent" id="newsEvent"></textarea>
+										</div>
+									</div>
+									<input type="submit" id="submit" value="submit" name="submit"
+										class="btn btn-info">
+
+								</form>
+							</div>
+							<!-- <div class="modal-footer">
+								<div class="form-action-buttons"></div>
+								<a href="/adminDashboard"><button>Click Back</button></a>
+							</div> -->
+						</div>
+					</div>
+
+				</div>
+</div>
+				<!--Careers Page-->
+				<div id="tab2" class="tabcontent">
+			<div class="panel-body ">
+				
+				
+					<div class="row">
+						<div class="col-md-12 fixed">
+					
+					<div class="searchadd">
+							<input type="text" id="searchjob"  placeholder="Search for jobs..." onkeyup="searchjob()"  style="width: 600px; height: 40px; padding-right: 40px; margin-top:100px; margin-left:60px;">
+				<div class="col-sm-2 addnew" style="margin-top:100px;">
+						<button class="btn btn-primary mb-1 addgal" onclick="openCarrersModal()">Addnew</button>
+					</div>
+			
+								</div><br>
+							
+							<div class="panel-body" >
+								<table id="tbl-student"
+									class="table table-responsive table-bordered table-hover" style="margin:auto;margin-right:900px;">
+									<thead>
+										<tr>
+											<th>ID</th>
+											<th>PhoneNumber</th>
+											<th>Email</th>
+											<th>Jobtitle</th>
+											<th>Keyskills</th>
+											<th>Experience</th>
+											 <th rowspan="6" style="width: 200px;">JobDescription</th>
+											<th colspan="2">Action</th>
+										</tr>
+									</thead>
+									<tbody id="dataContainer3">
+									</tbody>
+								</table>
+								<div id="pagination-container-careers" class="paginator"></div>
+							</div>
+
+
+						</div>
+					</div>
+</div>
+					<!--  	edit pop up for job opening  -->
+	<div class="modal fade" id="editCareerModal" tabindex="-1" aria-labelledby="editCareerModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content" id="carrersedit">
+            <div class="modal-header">
+                <h5 class="modal-title" id="editCareerModalLabel">Edit Form</h5>
+                <label class="close" for="modalToggle" onclick="closeCareer()">&times;</label>
+            </div>
+            <div class="modal-body">
+                <form action="" method="POST" id="editcareerForm" onsubmit="submitEditCareersForm(event)">
+                    <input type="hidden" name="_method" value="PUT" />
+                    <input type="hidden" name="id" value="" />
+
+                    <div class="input-box">
+                        <label for="PhoneNumber">PhoneNumber:</label>
+                        <input type="number" name="phoneNumber" id="phoneNumber" maxLength="10">
+                    </div>
+
+                    <div class="input-box">
+                        <label for="Email">Email:</label>
+                        <input type="text" name="email" id="email">
+                    </div>
+
+                    <div class="input-box">
+                        <label for="JobTitle">JobTitle:</label>
+                        <input type="text" name="jobTitle" id="jobTitle">
+                    </div>
+
+                    <div class="input-box">
+                        <label for="KeySkills">Key Skills:</label>
+                        <input type="text" name="keySkills" id="keySkills">
+                    </div>
+
+                    <div class="input-box">
+                        <label for="Year of Experience">Year of Experience:</label>
+                        <input type="text" name="yearsOfExperience" id="yearsOfExperience">
+                    </div>
+
+                    <div class="input-box">
+                        <label for="Job Description">Job Description:</label>
+                        <input type="text" name="jobDescription" id="jobDescription">
+                    </div>
+
+                    <div class="input-box">
+                        <input type="submit" value="Submit" id="submit" class="btn btn-primary" />
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+					<div class="modal" id="addCareersModalButton">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h5 class="modal-title">Add Careers</h5>
+								<label class="close" onclick="closeAddCareersModal()">&times;</label>
+							</div>
+							<div class="modal-body">
+								<form action="/apijobdetails/savejob" method="POST"
+									onsubmit="submitCareersForm(event)">
+									<div class="user-details">
+
+										<div class="input-box">
+											<label class="details">Phone Number :</label> <input
+												type="text" name="phoneNumber" id="phoneNumber" required>
+										</div>
+										<br>
+										<div class="input-box">
+											<label class="details">Email :</label> <input type="text"
+												name="email" id="email" required>
+										</div>
+										<br>
+										<div class="input-box">
+											<label class="details">JobTitle :</label> <input type="text"
+												name="jobTitle" id="JobTitle" required>
+										</div>
+										<br>
+										<div class="input-box">
+											<label class="details">Key Skills :</label> <input
+												type="text" name="keySkills" id="keySkills" required>
+										</div>
+										<br>
+										<div class="input-box">
+											<label class="details">Year of Experience :</label> <input
+												type="text" name="yearsOfExperience" id="experience"
+												required>
+										</div>
+										<br>
+										<div class="input-box">
+											<label class="details">Job Description :</label>
+											<textarea name="jobDescription" id="jobDescription"></textarea>
+										</div>
+
+										<br>
+
+									</div>
+
+									<input type="submit" id="submit" value="submit" name="submit"
+										class="btn btn-info">
+
+								</form>
+								<!-- <div class="form-action-buttons modal-footer">
+									<a href="/adminDashboard"><button class="btn btn-primary">Click
+											Back</button></a>
+								</div> -->
+							</div>
+
+						</div>
+					</div>
+				</div>
+				
+				
+				<!--Gallery Page-->
+				<div id="tab3" class="tabcontent">
+					<div class="panel panel-default">
+						<div class="row">
+				<div class="col-md-10 fixed">
+								<div class="searchadd">
+											<input type="text" id="searchBox" placeholder="Search by ID"
+												onkeyup="searchImages()"
+												 style="width: 600px; height: 40px; padding-right: 40px; margin-top:100px; margin-left:60px;">
+												 
+													<div class="col-sm-2 addnew" style="margin-top:100px;" >
+						<button class="btn btn-primary mb-1 addgal" onclick="saveGallery()">Addnew</button>
+					</div>
+										</div><br>
+								<div class="panel-body">
+									<table id="tbl-student"
+										class="table table-responsive table-bordered table-hover" style="width:600px;margin-left:70px;height:200px;">
+										<thead class="thead-light">
+											<tr>
+												<th>ID</th>
+												<th >Image</th>
+												<th >Action</th>
+											</tr>
+										</thead>
+										<tbody id="dataContainer2"></tbody>
+										
+									</table>
+									 <div id="pagination-controls" class="paginator"></div>
+								</div>
+				
+
+							</div>
+						</div>
+
+					</div>
+					<div class="modal" id="editImageModal">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h5 class="modal-title">Edit Image</h5>
+								<label class="close" for="modalToggle"
+									onclick="closeModalImage()">&times;</label>
+
+							</div>
+							<div class="modal-body">
+								<form action="" method="POST" enctype="multipart/form-data"
+									id="editimagForm" onsubmit="submitImageForm(event)">
+									<input type="hidden" name="id" value="" /> <input
+										type="hidden" name="_method" value="PUT" /> <label>Image:</label>
+									<input type="file" name="image" id="image" class="image">
+									<br> <br> <input type="submit" value="submit"
+										class="btn btn-success">
+								</form>
+							</div>
+						</div>
+					</div>
+				
+				<div class="modal" id="addGalleryModalButton">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h5 class="modal-title">Add Gallery</h5>
+							<label class="close" onclick="closeAddGalleryModal()">&times;</label>
+						</div>
+						<div class="modal-body">
+
+							<form action="/imageapi/image" method="POST"
+								enctype="multipart/form-data"
+								onsubmit="submitGalleryForm(event)">
+
+								<label>Image :</label> <input type="file" name="image"
+									multiple="multiple" id="image"><br>
+								<!-- <div class="modal-footer">
+									<input type="submit" value="submit"> <a
+										href="/adminDashboard"><button class="btn btn-primary">Click
+											Back</button></a>
+								</div> -->
+							</form>
+
+						</div>
+
+					</div>
+				</div>
+
+			</div>
+
+			<!--Job Application Response Page-->
+			<div id="tab4" class="tabcontent">
+				<div class="row">
+					<div class="col-md-12 fixed"><br>
+						
+						<input type="text" id="searchCareersdetails"
+							style="width: 600px; height: 40px;"
+							placeholder="Search for applicationlist" onkeyup="searchCareersdetails()"><br><br>
+
+
+						<div class="panel-body">
+							<table id="tbl-student"
+								class="table table-responsive table-bordered table-hover" style="width:900px;">
+								<thead>
+									<tr>
+										<th>ID</th>
+										<th>Name</th>
+										<th>email</th>
+										<th>phone</th>
+										<th>Date of Birth</th>
+										<th>Years of Relevant Experience</th>
+										<th>View Resume</th>
+										<th>Action</th>
+									</tr>
+								</thead>
+								<tbody id="dataContainer4">
+								</tbody>
+							</table>
+						</div>
+						<div id="careers-pagination-container" class="paginator"></div>
+					</div>
+				</div>
+			</div>
+
+			<!--scrollnews Page-->
+			<div id="tab5" class="tabcontent">
+
+				
+				<div class="row">
+				
+					<div class="col-md-12 fixed"><br><br>
+					<div class="searchadd">
+						<input type="text" id="searchscrollnews"
+							style="width: 600px; height: 40px;"
+							placeholder="Search for scrollnews..." onkeyup="searchscrollnews()">
+<div class="col-sm-2 addnew">
+					<button class="btn btn-primary scroladd" onclick="addNewScrollNews()">Addnew</button>
+				</div>
+				</div><br>
+						<div class="panel-body">
+							<table id="tbl-student"
+								class="table table-responsive table-bordered table-hover">
+
+								<thead>
+									<tr>
+										<th>Id</th>
+										<th>ScrollNews</th>
+										<th colspan="2">Action</th>
+									</tr>
+								</thead>
+								<tbody id="dataContainer"></tbody>
+							</table>
+						</div>
+						<div id="scrollnews-pagination-container" class="paginator"></div>
+					</div>
+				</div>
+				<!-- Edit pop up -->
+				<div class="modal fade" id="editScrollNewsModal" tabindex="-1"
+					aria-labelledby="editScrollNewsModalLabel" aria-hidden="true">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h5 class="modal-title" id="editScrollNewsModalLabel">Edit
+									Form</h5>
+								<label class="close" for="modalToggle"
+									onclick="closeScrollModel()">&times;</label>
+
+							</div>
+							<div class="modal-body">
+								<!-- Your form content starts here -->
+								<form id="editForm" method="POST" action=""
+									onsubmit="submitEditScrollForm(event)">
+									<input type="hidden" name="_method" value="PUT" /> <input
+										type="hidden" name="id" value="" />
+
+									<table>
+										<tr>
+											<td><label for="ScrollNews">ScrollNews:</label></td>
+											<td><textarea id="scrollNews" name="scrollnews"></textarea></td>
+										</tr>
+										<br>
+										<br>
+										<tr>
+											<td colspan="2"><input type="submit" value="Submit"
+												class="btn btn-success" /></td>
+										</tr>
+									</table>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="modal" id="addscrollModalButton">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h5 class="modal-title">AddScrollNews</h5>
+							<label class="close" onclick="closeAddScrollModal()">&times;</label>
+						</div>
+						<div class="modal-body">
+							<form action="/scrollnews/create" method="post"
+								onsubmit="submitScrollForm(event)">
+								<label>ScrollNews:</label> <input type="text" name="scrollNews"
+									style="width: 50%; height: 50px">
+
+							<button class="btn btn-success">Submit</button>
+
+
+
+							</form>
+						</div>
+						<!-- <div class="modal-footer">
+							<a href="/adminDashboard"><button class="btn btn-primary">Click
+									Back</button></a>
+						</div> -->
+					</div>
+				</div>
+			</div>
+
+			<!--Response Page-->
+			<div id="tab6" class="tabcontent">
+				<div class="row">
+					<div class="col-md-12 fixed">
+						<div class="searchadd">
+						<input type="text" id="searchcontact"
+							style="width: 600px; height: 40px;"
+							placeholder="Search for contacts..." onkeyup="searchcontact()">
+							</div><br>
+							
+						<div class="panel-body">
+							<table id="tbl-student"
+								class="table table-responsive table-bordered table-hover" style="width:900px;">
+
+								<thead>
+									<tr>
+										<th>ID</th>
+										<th>firstName</th>
+										<th>lastName</th>
+										<th>phoneNumber</th>
+										<th>email</th>
+										<th>message</th>
+										<th>Action</th>
+
+									</tr>
+								</thead>
+								<tbody id="dataContainer6">
+								</tbody>
+							</table>
+						</div>
+						<div id="contact-pagination-container" class="paginator"></div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+</div>
+
+</body>
+</html>

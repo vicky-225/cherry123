@@ -1,0 +1,711 @@
+/* Global Styles */
+body {
+    font-family: Arial, sans-serif;
+    font-size: 20px;
+}
+
+h1{
+	  font-style: italic;
+}
+
+#pagination-container-careers button ,#paginationControls button {
+    margin: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+    border: none;
+    background-color: blue;
+    border-radius: 3px;
+    transition: background-color 0.3s ease;
+}
+
+#pagination-container-careers button:hover, #paginationControls button:hover {
+    background-color: #bbb;
+}
+
+.paginator {
+    margin: 20px 0;
+    text-align: center;
+}
+
+.paginator button {
+    margin: 0 5px;
+    padding: 5px 10px;
+}
+.bg-light.modified-sidebar {
+    background-color: red !important; /* Your desired color */
+}
+ thead th {
+    color: #00FF00;  /* This is the hex code for bright green */
+}
+h4{
+color:#6495ED;
+text-align:center;
+font-weight:bold;
+}
+.col-sm-4{
+    width: 33.3%;
+    height: auto;
+}
+.sidebar{
+    margin-top: 500px ;
+	}
+.navbar{
+	background-color:pink;
+}
+.table-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh; /* Adjust the height as needed */
+  }
+
+.heading{
+	background-color:#fd7e14;
+	height: 100px;
+	margin-bottom: 200px;
+	color: white;
+	position: fixed;
+	top: 0;
+}
+.heading h1{
+	color: #fff;
+	padding-top: 20px;
+	margin-left: 200px;
+}
+
+.news{
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+  padding: 10px;
+  background-color: #f2f2f2;
+  color: #000;
+}
+.tabcontent {
+    margin-top: 0; 
+    padding-top: 0; 
+    width: 100%;
+margin:290px;
+}
+
+
+.container-fluid {
+    padding: 20px;
+    margin-bottom: -100px;
+    width: 1000px;
+ 
+}
+.scroll{
+	margin:auto;
+	justify-content: center;
+	width: 500px;
+	background-color: #0056b3;
+}
+
+.table{
+	margin:auto;
+}
+/* Header Styles */
+.admin {
+
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+}
+
+.heading {
+    text-align: center;
+    padding-right: 100px;
+    font-size: 24px;
+    color: black;
+    padding-right:100px;
+}
+
+h1{
+	margin-right:300px;
+
+}
+
+/* Navigation Styles */
+.navbar {
+ 
+    padding: 10px 0;
+}
+
+
+.navbar-nav .nav-item {
+    margin-right: 20px;
+    color: rgb(255, 255, 255);
+  
+}
+
+
+.nav-item:hover{
+	background-color:rgb(192, 192, 192);
+}
+
+/* Table Styles */
+table {
+  border-collapse: collapse;
+  width: 1000px;
+  
+}
+
+
+table , td {
+    padding: 10px;
+    text-align: left;
+  
+    padding-top: 30px;
+   
+}
+
+#addCareersModalButton{
+	text-align:left;
+	font-size:20px;
+}
+th {
+    background-color: #F78E21;
+    color: white;
+    height:30px;
+}
+.input-box {
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+
+.table {
+	width:100%;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+/* Button Styles */
+.button {
+    background-color: #F78E21;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.button:hover {
+    background-color: #E56200;
+}
+
+/* Image Styles */
+.image {
+    max-width: 100px;
+    max-height: 75px;
+    
+}
+
+/* Additional Styles */
+.addnewscroll {
+    margin-left: auto;
+}
+
+
+.tabcontent {
+    display: none;
+}
+
+#addcroll {
+    background-color: #F78E21;
+    border-radius: 10px;
+    color: white;
+    padding: 8px 16px;
+}
+
+#addcroll a {
+    color: white;
+    text-decoration: none;
+}
+
+#editbutton a {
+    color: white;
+    text-decoration: none;
+   
+}
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 20px 0;
+  background-color: #ffffff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+ td {
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+th {
+  background-color: #f2f2f2;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+/* Style buttons */
+button {
+  padding: 8px 15px;
+  background-color: #007bff;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  
+}
+
+button a {
+  color: #fff;
+  text-decoration: none;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+.scroll{
+	color:black;
+}
+
+.scroll th{
+	color:black;
+}
+
+.container-fluid.admin {
+    padding-top: 20px;
+  
+}
+.side {
+    width: 300px;
+    position: fixed;
+    top: 0;
+    background-color: #f8f9fa;
+    padding-top: 20px;
+    box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.1);
+
+}
+   /* Additional styles for the sidebar links */
+        .tablink {
+            display: block;
+            width: 100%;
+            text-align: left;
+            padding: 10px 20px;
+            border: none;
+            background-color: transparent;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .tablink:hover {
+            background-color: #e9ecef;
+        }
+
+        /* Other styles for the page */
+        .content {
+            margin-left: 250px; /* Adjust the value to match the sidebar width */
+            padding: 20px;
+        }
+
+/* Reset some default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Sidebar styles */
+.sidebar {
+    width: 250px;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 10px;
+    background-color: #f8f9fa;
+}
+
+.sidebar .nav-item {
+    margin-bottom: 5px;
+}
+
+.sidebar .nav-link {
+    padding: 10px 20px;
+    text-align: left;
+    color: #333;
+    background-color: transparent;
+    border: none;
+    border-radius: 0;
+}
+.sidebar .tablink:hover {
+    background-color: #0056b3;  /* This is the blue hover color */
+    color: white;  /* Making the text color white when hovering */
+}
+	
+
+
+.sidebar .nav-link:hover,
+.sidebar .nav-link:focus {
+   
+    color: #333;
+    text-decoration: none;
+}
+
+.sidebar .nav-link.active {
+    background-color: #024892;
+    color: #fff;
+    margin: 10px;
+    width: 150px;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Main content area */
+.content-section {
+    display: none;
+    margin: auto;
+    width: 90%;
+}
+
+.content-section.active {
+    display: block;
+}
+
+/* General styles */
+.navbar-nav .nav-item .nav-link {
+    color: #f1efef;
+}
+
+.navbar-nav .nav-item .nav-link.active {
+    color: #fff;
+}
+
+/* Other specific styles can be kept as needed */
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    body {
+        padding-top: 70px;
+    }
+
+    .navbar-brand img {
+        width: 120px;
+        height: auto;
+    }
+
+    .links {
+        background-color: #040504;
+    }
+
+    .content-section {
+        padding: 10px;
+    }
+
+    .navbar-toggler {
+        display: block !important;
+    }
+
+    .show-navbar-collapse .navbar-collapse {
+        display: block !important;
+    }
+
+    /* Customize other responsive styles as needed */
+}
+
+
+.button-container {
+    display: flex;
+    gap: 10px; /* Adjust the value to control the space between buttons */
+}
+
+.edit-button,
+.delete-button {
+    border-radius: 6px;
+    padding: 5px 10px;
+    cursor: pointer;
+    border: none;
+    background-color: #007bff;
+    color: #ffffff;
+    margin-right: 5px; /* Add margin to the right of the edit button */
+    width: 60px;
+    height: 40px;
+   
+}
+
+.edit-btn {
+    margin-right: 5px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 4px 8px;
+    cursor: pointer;
+    
+   
+  }
+
+  .delete-btn {
+    background-color: #ff0000;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 4px 8px;
+    cursor: pointer;
+  }
+
+
+ .resume-link {
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        padding: 4px 8px;
+        text-decoration: none;
+        display: inline-block;
+      }
+
+
+
+
+#logoutButton {
+    background-color: #ff0000;
+    color: #ffffff;
+    border: none;
+   border-radius: 6px;
+    cursor: pointer;
+    position: fixed;
+    margin-top: -40px;
+    right: 20px;
+    margin-right: 80px;
+    width: 80px;
+    height: 40px;
+}
+
+.Mahe{
+	display: flex;
+	width: 200px;
+}
+
+.img td,th{
+	width: 100px;
+	
+}
+
+.img th{
+   height: 40px;
+   background-color: blue;
+   color: #fff;
+	
+}
+
+.imgid{
+	width: 50px;
+}
+
+#tbl-student{
+	margin:0;
+}
+
+.edit-btn, .delete-btn {
+    margin-right: 5px;  /* Adjust the value as per your requirement */
+}
+.white-text-btn {
+    color: white !important;
+}
+
+  .modal-backdrop {
+            z-index: 1040;
+        }
+        .modal {
+            z-index: 1050;
+        }
+   .modal-toggle { display: none; } /* hide the checkbox */
+
+    /* hide the modal by default */
+    .modal { 
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        align-items: center;
+        justify-content: center;
+        color:rgb(0, 0, 0);
+        text-align:center;
+    }
+
+    .modal-content {
+        background-color: white;
+        padding: 20px;
+        border-radius: 5px;
+        max-width: 500px;
+        margin: 0 auto;
+        position: relative;
+        z-index: 2;
+         margin-top: 110px;
+    }
+
+  .modal-content #carrersedit{
+        background-color: white;
+        padding: 20px;
+        border-radius: 5px;
+        max-width: 500px;
+        margin: 0 auto;
+        position: relative;
+        z-index: 2;
+         margin-top: 110px;
+    }
+    .modal-backdrop {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 1;
+    }
+
+    /* show the modal and the backdrop when the checkbox is checked */
+    .modal-toggle:checked + .modal,
+    .modal-toggle:checked ~ .modal-backdrop {
+        display: flex;
+    }
+
+    /* style the close button */
+    .close {
+        cursor: pointer;
+        background: none;
+        border: none;
+        font-size: 24px;
+        line-height: 1;
+        color:red;
+        position: absolute;
+        right: 10px;
+        top: 10px;
+    }
+    .fas.fa-search {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #888;
+}
+
+textarea[name="newsEvent"] {
+    width: 100%;
+    height: 100px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+
+.fixed {
+  position: fixed;
+  top: 53%;
+  left: 70%;
+  right:10%;
+  transform: translate(-50%, -50%);
+}
+ .searchadd{
+ display:flex;
+ padding-left:10px;
+ padding-top:50px;
+ }
+ 
+ #searchjob {
+  width: 600px;
+  	border-radius:5px;
+  height: 40px;
+  padding-right: 40px;
+  margin-top: 100px;
+  margin-left: 60px;
+  border: 2px solid black; /* Add a 2px solid border with a gray color */
+  border-radius: 5px; /* Add rounded corners */
+}
+
+#searchcontact {
+  width: 600px; /* Set the width */
+  height: 40px; /* Set the height */
+  padding: 10px; /* Add padding for better appearance */
+  font-size: 16px; /* Set the font size */
+  border: 1px solid black; /* Add a border */
+  border-radius: 5px; /* Add rounded corners */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow */
+  outline: none; /* Remove the default focus outline */
+}
+
+#searchcontact::placeholder {
+  color: #999; /* Change the placeholder text color */
+}
+
+#searchcontact:hover,
+#searchcontact:focus {
+  border-color: #007bff; /* Change the border color on hover and focus */
+}
+
+#searchscrollnews {
+  width: 600px; /* Set the width */
+
+  border: 1px solid black; /* Add a border */
+  border-radius: 5px; /* Add rounded corners */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow */
+  margin-right:80px;
+ 
+}
+
+.scroladd{
+	padding-top:50px;
+}
+
+#searchCareersdetails{
+	margin-top:80px;
+	padding-left:50px;
+	border:1px solid black;
+	border-radius:5px;
+}
+
+#searchBox{
+	
+	padding-left:50px;
+	border:1px solid black;
+	border-radius:5px;
+	
+}
+
+.addgal{
+	margin-left:50px;
+}
+
+
+
+#searchInput{
+	  width: 600px; /* Set the width */
+     border: 1px solid black; /* Add a border */
+  border-radius: 5px; /* Add rounded corners */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow */
+  margin-right:80px;
+   height: 40px; 
+}
+main {
+  
+    padding: 20px;
+    position: relative; /* Add relative positioning */
+    top: 0; /* Start from the top */
+}
+
+
+
